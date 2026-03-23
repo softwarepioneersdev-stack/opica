@@ -1,11 +1,11 @@
 export type PageName =
-  | 'login'
+  | '/'
+  | 'signin'
   | 'signup'
+  | 'Profile'
+  | 'Admin'
   | 'complete-profile'
   | 'under-review'
-  | 'home'
-  | 'profile'
-  | 'dashboard'
 
 export interface Project {
   id: number

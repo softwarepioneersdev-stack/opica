@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../components/Navbar'
 import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { Button } from '../components/Buttons'
 import { fakeUser, homeStats, projects } from '../data/fakeData'
 import { Link } from 'react-router-dom'
-import { FlexContainer, GridContainer } from '../components/Containers'
+import { FlexContainer } from '../components/Containers'
 import { Card, CardContent, CardHeader } from '../components/Card'
 
 
@@ -18,17 +18,16 @@ const statIcons = [
 
 
 const HomePage: React.FC = () => {
-  const [isAuthinticated, setIsAuthinticated] = React.useState(true)
+  const [isAuthinticated] = React.useState(true)
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-
       <div className="m-5  px-4 sm:px-6 py-6">
         {/* ── Hero Banner ── */}
-        <FlexContainer className='!no-wrap md:!flex-row-reverse '>
+        <FlexContainer className='!no-wrap md:!flex-row-reverse mb-24 '>
 
-          <div className="md:w-[40vw] w-full md:!h-[40vw] h-98 rounded-[24px] overflow-hidden">
+          <div className="md:w-[35vw] w-full md:!h-[35vw] h-98 rounded-[24px] overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80"
               alt="Architecture building"
@@ -40,7 +39,7 @@ const HomePage: React.FC = () => {
             <p className="text-gray-400 text-xs mb-1">Good morning 👋</p>
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Welcome back,{' '}
-              <span className="text-blue-600">Alexander.</span>
+              <span className="text-blue-600">{fakeUser ? fakeUser.name : ""}</span>
             </h1>
             <p className="text-gray-500 text-sm mb-5 max-w-sm leading-relaxed">
               Manage your architectural requests, view active project
@@ -98,7 +97,7 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* ── Bottom Row ── */}
-        <div className="flex flex-col md:gridCols gap-12">
+        <div className="flex flex-col md:grid md:grid-cols-3 md:gridCols gap-12">
 
           {/* Profile Card */}
           <Card>
@@ -131,7 +130,7 @@ const HomePage: React.FC = () => {
             </Link>
           </Card>
 
-          <FlexContainer className='gridbg !flex-col gap-12'>
+          <FlexContainer className='gridbg !flex-col  gap-12'>
 
             {/* Recent Projects */}
             <Card className='w-full'>

@@ -3,8 +3,9 @@ import type { PageName } from '../types'
 import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { recentRequests } from '../data/fakeData'
-import { Link, NavLink } from 'react-router-dom'
-import { Button } from '../components/Buttons'
+// import { Link, NavLink } from 'react-router-dom'
+// import { Button } from '../components/Buttons'
+import Navbar from '../components/Navbar'
 
 
 const sideNav = [
@@ -27,9 +28,8 @@ const DashboardPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* ── Top Navbar ── */}
-   
 
-   
+      <Navbar />
       <div className="flex flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 py-6 gap-5">
         {/* ── Sidebar ── */}
         <aside className="hidden lg:flex flex-col w-44 bg-gray-900 rounded-2xl p-4 gap-1 flex-shrink-0 h-fit sticky top-24">

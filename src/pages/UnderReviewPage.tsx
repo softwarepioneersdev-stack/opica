@@ -1,11 +1,9 @@
 import React from 'react'
-import type { PageName } from '../types'
+import { Button } from '../components/Buttons'
+import {Footer} from '../components/Containers'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
-const UnderReviewPage: React.FC<Props> = ({ setPage }) => {
+const UnderReviewPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center">
@@ -57,18 +55,13 @@ const UnderReviewPage: React.FC<Props> = ({ setPage }) => {
           </div>
         </div>
 
-        <button
-          onClick={() => setPage('home')}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mb-3"
-        >
+        <Button style='primary'>
           Contact Support
-        </button>
-        <button
-          onClick={() => setPage('login')}
-          className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 rounded-xl transition-colors"
-        >
+        </Button>
+
+        <Button style='ghost'>
           Logout
-        </button>
+        </Button>
 
         <p className="text-xs text-gray-400 mt-5">
           Need help immediately? Check our{' '}
@@ -79,14 +72,7 @@ const UnderReviewPage: React.FC<Props> = ({ setPage }) => {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-6 mt-5 text-xs text-gray-400 justify-center">
-        <span>© 2024 Platform Inc. All rights reserved.</span>
-        {['Privacy Policy', 'Terms of Service', 'Help Center'].map((l) => (
-          <button key={l} className="hover:text-gray-600">
-            {l}
-          </button>
-        ))}
-      </div>
+      <Footer />
     </div>
   )
 }
