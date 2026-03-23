@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { fakeUser, homeStats, projects } from '../data/fakeData'
+import { Link } from 'react-router-dom'
 
 
 const statIcons = [
@@ -15,7 +16,7 @@ const statIcons = [
 const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar page="home"  />
+      <Navbar />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
         {/* ── Hero Banner ── */}
@@ -33,9 +34,12 @@ const HomePage: React.FC = () => {
                 one central workspace.
               </p>
               <div className="flex gap-3 flex-wrap">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
-                  Start New Project →
-                </button>
+
+                <Link to={'/signin'}>
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
+                    Start New Project →
+                  </button>
+                </Link>
                 <button className="border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-medium px-5 py-2.5 rounded-xl transition-colors">
                   View Schedule
                 </button>
@@ -56,31 +60,27 @@ const HomePage: React.FC = () => {
           {homeStats.map((s, i) => (
             <div
               key={s.label}
-              className={`rounded-2xl p-5 shadow-sm flex flex-col gap-3 ${
-                s.accent
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-100'
-              }`}
+              className={`rounded-2xl p-5 shadow-sm flex flex-col gap-3 ${s.accent
+                ? 'bg-blue-600 text-white'
+                : 'bg-white border border-gray-100'
+                }`}
             >
               <div
-                className={`w-9 h-9 rounded-xl flex items-center justify-center ${
-                  s.accent ? 'bg-blue-500 text-white' : 'bg-blue-50 text-blue-500'
-                }`}
+                className={`w-9 h-9 rounded-xl flex items-center justify-center ${s.accent ? 'bg-blue-500 text-white' : 'bg-blue-50 text-blue-500'
+                  }`}
               >
                 {statIcons[i]}
               </div>
               <div>
                 <p
-                  className={`text-3xl font-bold ${
-                    s.accent ? 'text-white' : 'text-gray-900'
-                  }`}
+                  className={`text-3xl font-bold ${s.accent ? 'text-white' : 'text-gray-900'
+                    }`}
                 >
                   {s.value}
                 </p>
                 <p
-                  className={`text-xs uppercase tracking-widest font-medium mt-0.5 ${
-                    s.accent ? 'text-blue-200' : 'text-gray-400'
-                  }`}
+                  className={`text-xs uppercase tracking-widest font-medium mt-0.5 ${s.accent ? 'text-blue-200' : 'text-gray-400'
+                    }`}
                 >
                   {s.label}
                 </p>
@@ -111,10 +111,12 @@ const HomePage: React.FC = () => {
                 </div>
               ))}
             </div>
-            <button className="w-full border border-blue-400 text-blue-600 hover:bg-blue-50 text-sm font-medium py-2 rounded-xl transition-colors"
-            >
-              Edit Profile
-            </button>
+            <Link to={"/Profile"} className='p-0'>
+              <button className="w-full w-40 border border-blue-400 text-blue-600 hover:bg-blue-50 text-sm font-medium py-2 rounded-xl transition-colors"
+              >
+                Edit Profile
+              </button>
+            </Link>
           </div>
 
           {/* Recent Projects */}

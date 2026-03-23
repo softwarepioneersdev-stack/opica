@@ -1,13 +1,10 @@
 import React from 'react'
-import type { PageName } from '../types'
 import Input from '../components/Input'
 import GoogleButton from '../components/GoogleButton'
+import { Link } from 'react-router-dom'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
-const SignupPage: React.FC<Props> = ({ setPage }) => {
+const SignupPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
@@ -68,7 +65,6 @@ const SignupPage: React.FC<Props> = ({ setPage }) => {
           </label>
 
           <button
-            onClick={() => setPage('complete-profile')}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors"
           >
             Create My Account →
@@ -86,12 +82,13 @@ const SignupPage: React.FC<Props> = ({ setPage }) => {
 
           <p className="text-center text-sm text-gray-500">
             Already have an account?{' '}
+            <Link to={'/signin'}>
             <button
-              onClick={() => setPage('login')}
               className="text-blue-600 font-medium hover:underline"
             >
               Sign In
             </button>
+            </Link>
           </p>
         </div>
       </div>

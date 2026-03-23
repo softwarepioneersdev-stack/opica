@@ -3,10 +3,8 @@ import type { PageName } from '../types'
 import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { recentRequests } from '../data/fakeData'
+import { Link } from 'react-router-dom'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
 const sideNav = [
   { icon: '⊞', label: 'Dashboard', target: 'dashboard' as PageName },
@@ -16,7 +14,7 @@ const sideNav = [
   { icon: '⚙️', label: 'Settings', target: 'home' as PageName },
 ]
 
-const DashboardPage: React.FC<Props> = ({ setPage }) => {
+const DashboardPage: React.FC = () => {
   const [search, setSearch] = useState('')
 
   const filtered = recentRequests.filter(
@@ -29,12 +27,12 @@ const DashboardPage: React.FC<Props> = ({ setPage }) => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* ── Top Navbar ── */}
       <nav className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
-        <button
-          onClick={() => setPage('home')}
-          className="text-blue-600 font-bold text-lg tracking-tight font-serif"
-        >
-          ArchServices
-        </button>
+        <Link to={'/'}>
+          <button
+            className="text-blue-600 font-bold text-lg tracking-tight font-serif"
+          >
+            OPICA
+          </button></Link>
         <div className="hidden md:flex gap-1">
           {['Home', 'Messaging', 'Orders'].map((item) => (
             <button
@@ -52,12 +50,13 @@ const DashboardPage: React.FC<Props> = ({ setPage }) => {
           <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
             🔔
           </button>
-          <button
-            onClick={() => setPage('profile')}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
-          >
-            ⚙️
-          </button>
+          <Link to={'/Profile'}>
+            <button
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+            >
+              ⚙️
+            </button>
+          </Link>
         </div>
       </nav>
 
@@ -67,12 +66,11 @@ const DashboardPage: React.FC<Props> = ({ setPage }) => {
           {sideNav.map((item) => (
             <button
               key={item.label}
-              onClick={() => setPage(item.target)}
-              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${
-                item.label === 'Dashboard'
+              onClick={() =>{}}
+              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${item.label === 'Dashboard'
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-400 hover:text-white hover:bg-gray-800'
-              }`}
+                }`}
             >
               <span>{item.icon}</span> {item.label}
             </button>

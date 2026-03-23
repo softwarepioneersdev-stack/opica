@@ -1,12 +1,8 @@
 import React from 'react'
-import type { PageName } from '../types'
 import Navbar from '../components/Navbar'
 import Avatar from '../components/Avatar'
 import { profileDetails } from '../data/fakeData'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
 const availabilityColors = [
   'bg-green-100 text-green-700',
@@ -14,11 +10,10 @@ const availabilityColors = [
   'bg-amber-100 text-amber-700',
 ]
 
-const ProfilePage: React.FC<Props> = ({ setPage }) => {
+const ProfilePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar page="profile" setPage={setPage} />
-
+      <Navbar/>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 

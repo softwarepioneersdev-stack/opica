@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import type { PageName } from '../types'
 import Input from '../components/Input'
 import GoogleButton from '../components/GoogleButton'
+import { Link } from 'react-router-dom'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
-const LoginPage: React.FC<Props> = ({ setPage }) => {
+const LoginPage: React.FC = () => {
   const [showPass, setShowPass] = useState(false)
   const [keepLogged, setKeepLogged] = useState(false)
 
@@ -68,13 +65,13 @@ const LoginPage: React.FC<Props> = ({ setPage }) => {
             />
             Keep me logged in
           </label>
-
-          <button
-            onClick={() => setPage('home')}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mt-1"
-          >
-            Sign In →
-          </button>
+          <Link to={'/signin'}>
+            <button
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mt-1"
+            >
+              Sign In →
+            </button>
+          </Link>
 
           <div className="relative flex items-center gap-3">
             <div className="flex-1 h-px bg-gray-200" />
@@ -88,12 +85,13 @@ const LoginPage: React.FC<Props> = ({ setPage }) => {
 
           <p className="text-center text-sm text-gray-500">
             Don't have an account?{' '}
-            <button
-              onClick={() => setPage('signup')}
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Create an account
-            </button>
+            <Link to={"/signup"}>
+              <button
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Create an account
+              </button>
+            </Link>
           </p>
         </div>
       </div>
