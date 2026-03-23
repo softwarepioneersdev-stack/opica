@@ -3,7 +3,7 @@ import type { Project, Request, StatItem } from '../types'
 export const fakeUser = {
   name: 'Alexander Wright',
   title: 'Principal Architect, Creative Studio',
-  email: 'alex.wright@archservices.com',
+  email: 'alex.wright@Opica.com',
   location: 'San Francisco, CA',
   member: 'Premium Member since 2021',
   initials: 'AW',
@@ -85,7 +85,7 @@ export const recentRequests: Request[] = [
 
 export const profileDetails = {
   fullName: 'Julian Marcus Henderson',
-  email: 'j.henderson@archservices.com',
+  email: 'j.henderson@Opica.com',
   phone: '+1 (555) 902-3412',
   office: '245 Park Avenue, Suite 1200',
   location: 'New York, NY',

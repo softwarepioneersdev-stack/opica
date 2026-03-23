@@ -1,24 +1,30 @@
 import React from 'react'
 import Input from '../components/Input'
+import { Actions, Card, CardContent, CardHeader } from '../components/Card'
 import GoogleButton from '../components/GoogleButton'
 import { Link } from 'react-router-dom'
+import { Button } from '../components/Buttons'
+import { Footer } from '../components/Containers'
 
 
 const SignupPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-1">Create Account</h2>
-        <p className="text-sm text-blue-600 mb-7">
-          Please fill in the details to start your journey.
-        </p>
+      <Card className='border-none md:border-gray-800 w-full md:bg-white bg-transparent max-w-[fit-content]'>
 
-        <div className="flex flex-col gap-4">
+        <CardHeader>
+          <h2 className="text-2xl font-bold text-gray-900 mb-1">Create Account</h2>
+          <p className="text-sm text-blue-600 mb-7">
+            Please fill in the details.
+          </p>
+        </CardHeader>
+
+        <CardContent className="flex flex-col gap-4">
           <Input label="Full Name" placeholder="John Doe" icon="👤" />
           <Input
             label="Email Address"
             type="email"
-            placeholder="john@archservices.com"
+            placeholder="john@Opica.com"
             icon="✉️"
           />
 
@@ -40,15 +46,20 @@ const SignupPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <Input label="Password" type="password" placeholder="••••••••" icon="🔒" />
+          <Actions>
+            <Input
+              label="Password"
+              type="password"
+              placeholder="••••••••"
+              icon="🔒" />
+
             <Input
               label="Confirm Password"
               type="password"
               placeholder="••••••••"
               icon="🔒"
             />
-          </div>
+          </Actions>
 
           <label className="flex items-start gap-2 text-sm text-gray-600 cursor-pointer">
             <input type="checkbox" className="mt-0.5 accent-blue-600" />
@@ -64,11 +75,7 @@ const SignupPage: React.FC = () => {
             </span>
           </label>
 
-          <button
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors"
-          >
-            Create My Account →
-          </button>
+          <Button style='primary' className="w-full">Create My Account →</Button>
 
           <div className="relative flex items-center gap-3">
             <div className="flex-1 h-px bg-gray-200" />
@@ -83,15 +90,18 @@ const SignupPage: React.FC = () => {
           <p className="text-center text-sm text-gray-500">
             Already have an account?{' '}
             <Link to={'/signin'}>
-            <button
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Sign In
-            </button>
+              <button
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Sign In
+              </button>
             </Link>
           </p>
-        </div>
-      </div>
+        </CardContent>
+
+        <Footer />
+
+      </Card>
     </div>
   )
 }

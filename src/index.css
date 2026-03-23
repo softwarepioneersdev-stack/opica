@@ -8,6 +8,15 @@
 
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   background-color: #f9fafb;
+}
+
+.gridCols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gridbg {
+  grid-column: span 2;
 }

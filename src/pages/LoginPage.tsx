@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Input from '../components/Input'
 import GoogleButton from '../components/GoogleButton'
 import { Link } from 'react-router-dom'
+import { Button } from '../components/Buttons'
+import { Card } from '../components/Card'
+import { Footer } from '../components/Containers'
 
 
 const LoginPage: React.FC = () => {
@@ -11,10 +14,10 @@ const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
       <h1 className="text-3xl font-bold text-amber-700 font-serif mb-8 tracking-tight">
-        ArchServices
+        Opica
       </h1>
 
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <Card className='border-none md:border-gray-800 w-full md:bg-white max-w-[fit-content]'>
         <h2 className="text-2xl font-bold text-gray-900 mb-1">Welcome Back</h2>
         <p className="text-sm text-gray-500 mb-7">
           Please enter your details to sign in
@@ -24,7 +27,7 @@ const LoginPage: React.FC = () => {
           <Input
             label="Email Address"
             type="email"
-            placeholder="name@archservices.com"
+            placeholder="name@Opica.com"
             icon="✉️"
           />
 
@@ -66,11 +69,9 @@ const LoginPage: React.FC = () => {
             Keep me logged in
           </label>
           <Link to={'/signin'}>
-            <button
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mt-1"
-            >
+            <Button className='w-full' style='primary'>
               Sign In →
-            </button>
+            </Button>
           </Link>
 
           <div className="relative flex items-center gap-3">
@@ -94,12 +95,9 @@ const LoginPage: React.FC = () => {
             </Link>
           </p>
         </div>
-      </div>
+      </Card>
 
-      <p className="text-xs text-gray-400 mt-6">
-        © 2024 ArchServices. All rights reserved. • Privacy Policy • Terms of
-        Service
-      </p>
+      <Footer />
     </div>
   )
 }

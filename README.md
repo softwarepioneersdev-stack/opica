@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# opica
+# Opica
 =======
-# ArchServices — React + Vite + TypeScript + Tailwind CSS
+# Opica — React + Vite + TypeScript + Tailwind CSS
 
 A full multi-page architectural services platform UI.
 

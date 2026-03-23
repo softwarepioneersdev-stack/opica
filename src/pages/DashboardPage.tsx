@@ -4,6 +4,7 @@ import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { recentRequests } from '../data/fakeData'
 import { Link, NavLink } from 'react-router-dom'
+import { Button } from '../components/Buttons'
 
 
 const sideNav = [
@@ -26,44 +27,9 @@ const DashboardPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* ── Top Navbar ── */}
-      <nav className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
-        <Link to={'/'}>
-          <button
-            className="text-blue-600 font-bold text-lg tracking-tight font-serif"
-          >
-            OPICA
-          </button></Link>
-        <div className="hidden md:flex gap-1">
+   
 
-          {['Home', 'Messaging', 'Orders'].map((item) => (
-            <NavLink to={`/${item || "*"}`}>
-              <button
-                key={item}
-                className="px-3 py-1.5 text-sm text-gray-500 hover:text-gray-800 rounded-md transition-colors"
-              >
-                {item}
-              </button>
-
-            </NavLink>
-          ))}
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-1.5 rounded-full transition-colors">
-            + New Request
-          </button>
-          <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
-            🔔
-          </button>
-          <Link to={'/Profile'}>
-            <button
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
-            >
-              ⚙️
-            </button>
-          </Link>
-        </div>
-      </nav>
-
+   
       <div className="flex flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 py-6 gap-5">
         {/* ── Sidebar ── */}
         <aside className="hidden lg:flex flex-col w-44 bg-gray-900 rounded-2xl p-4 gap-1 flex-shrink-0 h-fit sticky top-24">
