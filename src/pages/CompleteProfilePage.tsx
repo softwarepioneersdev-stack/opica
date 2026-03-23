@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import type { PageName } from '../types'
+import { Footer } from '../components/Containers'
 
-interface Props {
-  setPage: (page: PageName) => void
-}
 
 const sources = ['Facebook', 'YouTube', 'Google', 'Friend', 'Other']
 const icons: Record<string, string> = {
@@ -14,7 +11,7 @@ const icons: Record<string, string> = {
   Other: '•••',
 }
 
-const CompleteProfilePage: React.FC<Props> = ({ setPage }) => {
+const CompleteProfilePage: React.FC = () => {
   const [selected, setSelected] = useState<string | null>(null)
 
   return (
@@ -79,11 +76,10 @@ const CompleteProfilePage: React.FC<Props> = ({ setPage }) => {
                 <button
                   key={s}
                   onClick={() => setSelected(s)}
-                  className={`flex flex-col items-center gap-1 px-4 py-3 rounded-xl border text-xs font-medium transition-all ${
-                    selected === s
+                  className={`flex flex-col items-center gap-1 px-4 py-3 rounded-xl border text-xs font-medium transition-all ${selected === s
                       ? 'border-blue-500 bg-blue-50 text-blue-600'
                       : 'border-gray-200 text-gray-600 hover:border-blue-300'
-                  }`}
+                    }`}
                 >
                   <span className="text-lg">{icons[s]}</span>
                   {s}
@@ -107,24 +103,20 @@ const CompleteProfilePage: React.FC<Props> = ({ setPage }) => {
           </label>
 
           <button
-            onClick={() => setPage('under-review')}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors"
           >
             Continue →
           </button>
         </div>
       </div>
-
-      <p className="text-xs text-gray-400 mt-4">
-        © 2024 SetYourGoals. All rights reserved.
-      </p>
-      <div className="flex gap-4 mt-1">
-        {['Help Center', 'Privacy', 'Contact'].map((l) => (
-          <button key={l} className="text-xs text-gray-400 hover:text-gray-600">
-            {l}
-          </button>
-        ))}
-      </div>
+      <Footer/>
+        <div className="flex gap-4 mt-1">
+          {['Help Center', 'Privacy', 'Contact'].map((l) => (
+            <button key={l} className="text-xs text-gray-400 hover:text-gray-600">
+              {l}
+            </button>
+          ))}
+        </div>
     </div>
   )
 }

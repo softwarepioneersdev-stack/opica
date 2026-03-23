@@ -1,12 +1,16 @@
+// ─── Page / Route names ───────────────────────────────────────────────────────
 export type PageName =
   | '/'
   | 'signin'
   | 'signup'
   | 'Profile'
   | 'Admin'
+  | 'messaging'
+  | 'orders'
   | 'complete-profile'
   | 'under-review'
 
+// ─── Data shapes ─────────────────────────────────────────────────────────────
 export interface Project {
   id: number
   name: string

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { PageName } from '../types'
+
 import Avatar from '../components/Avatar'
 import Badge from '../components/Badge'
 import { recentRequests } from '../data/fakeData'
@@ -9,11 +9,11 @@ import Navbar from '../components/Navbar'
 
 
 const sideNav = [
-  { icon: '⊞', label: 'Dashboard', target: 'dashboard' as PageName },
-  { icon: '🏛️', label: 'Projects', target: 'home' as PageName },
-  { icon: '👥', label: 'Clients', target: 'home' as PageName },
-  { icon: '💰', label: 'Finance', target: 'home' as PageName },
-  { icon: '⚙️', label: 'Settings', target: 'home' as PageName },
+  { icon: '⊞', label: 'Dashboard', target: 'dashboard' },
+  { icon: '🏛️', label: 'Projects', target: 'home' },
+  { icon: '👥', label: 'Clients', target: 'home' },
+  { icon: '💰', label: 'Finance', target: 'home' },
+  { icon: '⚙️', label: 'Settings', target: 'home' },
 ]
 
 const DashboardPage: React.FC = () => {
@@ -26,7 +26,7 @@ const DashboardPage: React.FC = () => {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
       {/* ── Top Navbar ── */}
 
       <Navbar />
