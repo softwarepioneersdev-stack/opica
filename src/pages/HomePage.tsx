@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
                   Start New Project →
                 </Button>
               </Link>
-              <Link to={isAuthinticated ? "/Dashbaord" : '/signin'}>
+              <Link to={isAuthinticated ? "/Admin" : '/signin'}>
                 <Button style='outline'>
                   Dashbaord
                 </Button>

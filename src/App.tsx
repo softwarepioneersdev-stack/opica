@@ -9,6 +9,7 @@ import ProfilePage         from './pages/ProfilePage'
 import DashboardPage       from './pages/DashboardPage'
 import CompleteProfilePage from './pages/CompleteProfilePage'
 import UnderReviewPage     from './pages/UnderReviewPage'
+import Orders              from './pages/Orders'
 
 // ── Placeholder pages for new nav routes ─────────────────────────────────────
 const PlaceholderPage = ({ title, emoji }: { title: string; emoji: string }) => (
@@ -41,7 +42,7 @@ function App() {
 
         {/* ── New nav routes ── */}
         <Route path="/messaging" element={<PlaceholderPage title="Messaging"  emoji="💬" />} />
-        <Route path="/orders"    element={<PlaceholderPage title="Orders"     emoji="📋" />} />
+        <Route path="/orders"    element={<Orders/>} />
       </Routes>
     </div>
   )
