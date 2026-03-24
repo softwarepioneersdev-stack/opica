@@ -133,6 +133,7 @@ const DashboardPage: React.FC = () => {
         })}
       </nav>
 
+<<<<<<< HEAD
       {/* Generate Report CTA */}
       <div className="p-2.5 flex-shrink-0" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <button
@@ -205,6 +206,18 @@ const DashboardPage: React.FC = () => {
               </h1>
               <p className="text-xs mt-0.5 hidden sm:block truncate" style={{ color: '#8b90a0' }}>
                 Monitoring real-time precision metrics and curated logistics.
+=======
+        {/* ── Main Content ── */}
+        <main className="flex-1 flex flex-col w-full gap-5">
+          {/* Header */}
+          <div className="flex items-start !flex-col md:flex-row gap-3 justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Dashboard Overview
+              </h2>
+              <p className="text-sm text-gray-400 mt-0.5">
+                Welcome back, Alex. Here's what's happening today.
+>>>>>>> 24e4501 (small fix)
               </p>
             </div>
           </div>
@@ -338,10 +351,15 @@ const DashboardPage: React.FC = () => {
                 />
               </div>
             </div>
+<<<<<<< HEAD
 
             {/* Horizontally scrollable table */}
             <div className="overflow-x-auto">
               <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: 540 }}>
+=======
+            <div className="overflow-x-scroll md:overflow-x-auto">
+              <table className="w-full text-sm">
+>>>>>>> 24e4501 (small fix)
                 <thead>
                   <tr style={{ background: 'rgba(255,255,255,0.02)' }}>
                     {['Tracking ID', 'Asset Name', 'Category', 'Status', 'Timestamp', 'Actions'].map((h) => (
