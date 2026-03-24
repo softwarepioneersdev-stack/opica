@@ -15,6 +15,8 @@ src/
 │   ├── GoogleButton.tsx
 │   ├── Input.tsx
 │   └── Navbar.tsx
+|			|. Button 
+
 ├── data/
 │   └── fakeData.ts     # All fake/mock data
 ├── pages/              # One file per page
