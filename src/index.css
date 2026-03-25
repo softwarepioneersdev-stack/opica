@@ -2,29 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Base ─────────────────────────────────────────── */
-body {
-  margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS  (light mode)
+   All raw color values live here — NOWHERE ELSE.
+   Components reference var(--color-*) or the Tailwind
+   aliases defined in tailwind.config.js.
+═══════════════════════════════════════════════════════ */
+:root {
+  /* Primary — replaces blue-600 / #4f6ef7 / navy everywhere */
+  --color-primary:       #4f6ef7;
+  --color-primary-hover: #3d56ce;
+  --color-primary-light: #eef1fe;
+  --color-primary-muted: rgba(79, 110, 247, 0.12);
+
+  /* Surfaces */
+  --color-surface:         #ffffff;
+  --color-surface-raised:  #f8f9fc;
+  --color-surface-overlay: #f0f2f7;
+  --color-surface-dark:    #1a1d27;  /* dark card bg */
+
+  /* Text */
+  --color-text-primary:   #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted:     #9ca3af;
+  --color-text-inverse:   #ffffff;
+
+  /* Borders */
+  --color-border:       #e4e7ef;
+  --color-border-strong: rgba(255, 255, 255, 0.07);
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger:  #ef4444;
 }
 
-/* ─── Smooth background & text transitions on theme switch ── */
+/* ═══════════════════════════════════════════════════════
+   DARK MODE overrides
+═══════════════════════════════════════════════════════ */
+.dark {
+  --color-primary:       #7b97f9;
+  --color-primary-hover: #6080f0;
+  --color-primary-light: rgba(79, 110, 247, 0.15);
+  --color-primary-muted: rgba(79, 110, 247, 0.18);
+
+  --color-surface:         #111827;
+  --color-surface-raised:  #1a1d27;
+  --color-surface-overlay: #1e2435;
+  --color-surface-dark:    #0d1117;
+
+  --color-text-primary:   #f9fafb;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted:     #6b7280;
+  --color-text-inverse:   #111827;
+
+  --color-border:       rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASE STYLES
+═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+
 html {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* ─── Dark scrollbar ─────────────────────────────────── */
-.dark ::-webkit-scrollbar        { width: 8px; }
-.dark ::-webkit-scrollbar-track  { background: #1f2937; }
-.dark ::-webkit-scrollbar-thumb  { background: #4b5563; border-radius: 4px; }
-.dark ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-
-:root{
-  --background : rgb(228, 228, 228);
-  --background-dark : rgb(22, 31, 78);
-
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-surface-overlay);
+  color: var(--color-text-primary);
 }
-.grid-span {
-  grid-column: span 2;
-}
+
+/* RTL support */
+[dir="rtl"] { font-family: 'DM Sans', 'Segoe UI', Tahoma, sans-serif; }
+
+/* ═══════════════════════════════════════════════════════
+   SCROLLBAR (dark mode)
+═══════════════════════════════════════════════════════ */
+.dark ::-webkit-scrollbar        { width: 6px; height: 6px; }
+.dark ::-webkit-scrollbar-track  { background: var(--color-surface-raised); }
+.dark ::-webkit-scrollbar-thumb  { background: #374151; border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* ═══════════════════════════════════════════════════════
+   UTILITY HELPERS
+═══════════════════════════════════════════════════════ */
+.grid-span { grid-column: span 2; }
