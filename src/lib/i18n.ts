@@ -38,6 +38,7 @@ export const applyLang = (lang: Lang): void => {
   const found = LANGUAGES.find(l => l.code === lang)
   document.documentElement.lang = lang
   document.documentElement.dir  = found?.dir ?? 'ltr'
+  document.body.style.fontFamily = document.documentElement.dir == 'rtl' ? "Tajawal": "Inter";  
 }
 
 // ── Change language, persist, apply ──────────────────────────────────────────
@@ -45,6 +46,7 @@ export const changeLang = (lang: Lang): void => {
   localStorage.setItem(LANG_KEY, lang)
   applyLang(lang)
   i18n.changeLanguage(lang)
+  
 }
 
 // ── i18next initialisation ────────────────────────────────────────────────────
