@@ -81,6 +81,7 @@ interface LinkProps {
   link: NavLinkType
   pathname: string
 }
+
 const DesktopNavLink = ({ link, pathname }: LinkProps) => {
   const active = isActiveLink(link.path, pathname)
   return (
@@ -158,7 +159,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(false)
   const wrapperRef = useRef<HTMLElement>(null)
-
   const navLinks = getNavLinks()
   const authLinks = getAuthLinks()
 
@@ -177,6 +177,7 @@ const Navbar = () => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node))
         setMenuOpen(false)
     }
+    
     if (menuOpen) document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [menuOpen])

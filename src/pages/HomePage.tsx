@@ -5,15 +5,14 @@ import Badge from '../components/Badge'
 import { Button } from '../components/Buttons'
 import { fakeUser, homeStats, projects } from '../data/fakeData'
 import { Link } from 'react-router-dom'
-import { FlexContainer } from '../components/Containers'
+import { FlexContainer, Footer } from '../components/Containers'
 import { Card, CardContent, CardHeader } from '../components/Card'
 
 
 const statIcons = [
   <svg key="0" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>,
   <svg key="1" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>,
-  <svg key="2" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  <svg key="3" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>,
+  <svg key="2" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>,
 ]
 
 
@@ -21,7 +20,7 @@ const HomePage: React.FC = () => {
   const [isAuthinticated] = React.useState(true)
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Navbar />
       <div className="m-5  px-4 sm:px-6 py-6">
         {/* ── Hero Banner ── */}
@@ -63,7 +62,7 @@ const HomePage: React.FC = () => {
         </FlexContainer>
 
         {/* ── Stats Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 my-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 my-12">
           {homeStats.map((s, i) => (
             <div
               key={s.label}
@@ -97,7 +96,7 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* ── Bottom Row ── */}
-        <div className="flex flex-col md:grid md:grid-cols-3 md:gridCols gap-12">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-12">
 
           {/* Profile Card */}
           <Card>
@@ -130,7 +129,7 @@ const HomePage: React.FC = () => {
             </Link>
           </Card>
 
-          <FlexContainer className='gridbg !flex-col  gap-12'>
+          <FlexContainer className='!flex-col grid-span  gap-12'>
 
             {/* Recent Projects */}
             <Card className='w-full'>
@@ -188,7 +187,9 @@ const HomePage: React.FC = () => {
           </FlexContainer>
         </div>
       </div >
-    </div >
+
+      <Footer/>
+    </main >
   )
 }
 

@@ -16,7 +16,6 @@ export const homeStats: Array<{
 }> = [
   { label: 'Active Projects', value: '12', accent: true },
   { label: 'Pending Approvals', value: '04', accent: false },
-  { label: 'Total Value', value: '$42.5k', accent: true },
   { label: 'Unread Messages', value: '08', accent: false },
 ]
 

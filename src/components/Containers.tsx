@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 
 type containerProps = {
     col?: number;
@@ -24,10 +23,12 @@ const FlexContainer = ({ className = "", children, bg = "transparent" }: contain
         </div>
     );
 }
+
 type emptyProps = {
     icon: string;
     header: String;
 }
+
 const EmptyContainer = ({ icon, header }: emptyProps) => {
     return (
         <div className="w-40 m-auto text-center  py-16 text-gray-400">
@@ -37,30 +38,28 @@ const EmptyContainer = ({ icon, header }: emptyProps) => {
     )
 }
 
-const LogoContainer = () => {
-    return (
-        <Link to="/" className="inline-flex items-center gap-2.5">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="blue">
-                <path d="M12 2C12 2 8 6 4 9C6 11 8 13 8 16C8 18.2 9.8 20 12 20C14.2 20 16 18.2 16 16C16 13 18 11 20 9C16 6 12 2 12 2Z" fill="#2563EB" />
-                <path d="M12 20C12 20 10 21.5 10 22.5C10 23 11 23.5 12 23.5C13 23.5 14 23 14 22.5C14 21.5 12 20 12 20Z" fill="#06B6D4" />
-            </svg>
-            <span className="font-black text-2xl text-navy">عِفَّة</span>
-        </Link>
-    )
-}
 
 const Footer = () => {
     return (
         <>
-            <p className="flex flex-col items-center gap-2 md:flex-row text-xs text-gray-400 mt-6">
-                <div>
-                    <span>• Privacy Policy</span>
-                    <span>• Terms of Service</span>
+
+            {/* ── Footer ── */}
+            < footer
+                className="bg-white/95 flex flex-col-reverse gap-8 md:flex-row  justify-between items-center dark:bg-gray-900/95 dark:text-white text-gray-700 h-[fit-content] p-8 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 shadow-sm"
+            >
+                <span  className={"text-center text-2"} style={{ fontSize: ".8rem", textAlign: 'center' }}>
+                    © 2026 The Precise Curator. All rights reserved.
+                </span>
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
+                    {['Privacy Policy', 'Terms of Service', 'Contact Support', 'Documentation'].map((link) => (
+                        <a key={link} href="#" style={{ fontSize: 10.5, textDecoration: 'none' }}>
+                            {link}
+                        </a>
+                    ))}
                 </div>
-                <span>© 2026 Opica. All rights reserved.</span>
-            </p>
+            </footer >
         </>
     )
 }
 
-export { FlexContainer, GridContainer, EmptyContainer, LogoContainer, Footer }
+export { FlexContainer, GridContainer, EmptyContainer, Footer }
