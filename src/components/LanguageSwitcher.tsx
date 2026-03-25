@@ -23,8 +23,8 @@ const LanguageSwitcher = ({ variant = 'compact' }: Props) => {
   const { lang, changeLang } = useT()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const current = LANGUAGES.find(l => l.code === lang)!
 
+  
   // close on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
