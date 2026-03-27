@@ -6,15 +6,18 @@ import HomePage            from './pages/HomePage'
 import LoginPage           from './pages/LoginPage'
 import SignupPage          from './pages/SignupPage'
 import ProfilePage         from './pages/ProfilePage'
-import DashboardPage       from './pages/DashboardPage'
+import DashboardPage       from './pages/dashboard/DashboardPage'
 import CompleteProfilePage from './pages/CompleteProfilePage'
 import UnderReviewPage     from './pages/UnderReviewPage'
 import Orders              from './pages/Orders'
+
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   useEffect(() => { initTheme() }, [])
   return (
     <div className="transition-colors duration-200">
+      <Toaster position="top-right" reverseOrder={false} />
       <Routes>
         <Route path="/"                  element={<HomePage />} />
         <Route path="/Profile"           element={<ProfilePage />} />
